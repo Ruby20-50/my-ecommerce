@@ -1,4 +1,3 @@
-import React from "react";
 import { useCart } from "../hooks/useCart";
 
 export const Header = () =>{

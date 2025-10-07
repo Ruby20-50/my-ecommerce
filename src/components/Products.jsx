@@ -1,8 +1,8 @@
 //this file is called main in the github file..
-import React, { useEffect, useState } from "react";
-import ProductCard from "./Components/ProductCard";
+import  { useEffect, useState } from "react";
 import axios from "axios";
-import Filter from "./Components/Filter"
+import Filter from "./Filter"
+import ProductCard from "./ProductCard";
 
 export default function Products({searchTerm, setSearchTerm,
      selectedCategory, setSelectedCategory }){
@@ -49,11 +49,11 @@ export default function Products({searchTerm, setSearchTerm,
         return matchesSearch && matchesCategory 
     }
     )
-    console.log(filteredProducts);
+    console.log('here',filteredProducts);
+    if(error) return <p>Error: {error}</p>
     return(
 
         //    if(loading) return <p>Loading..</p>;
-    // if(error) return <p>Error: {error}</p>
     <div className="w-max-fit">
         <Filter
         searchTerm={searchTerm}
@@ -66,10 +66,13 @@ export default function Products({searchTerm, setSearchTerm,
             
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-screen-xl mx-auto">
                  {filteredProducts.map((product) => {
-                  
-             <ProductCard 
-              key={product.id} data={products} />     
-            })}
+                   return (
+                     <ProductCard
+                       key={product.id}
+                       data={product}
+                     />
+                   );
+                 })}
              </div>
              )
     }
