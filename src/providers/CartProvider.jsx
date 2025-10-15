@@ -9,7 +9,7 @@ export function CartProvider({ children }) {
 
   const addToCart = (product) => {
     //? This line adds the new product to the existing cart array, instead of replacing it.
-    setCart((prevCart) => [...prevCart, product]);//this line is ambiguous for me  
+    setCart((prevCart) => [...prevCart, product]);
 
   };
   const removeFromCart = (productId) => {

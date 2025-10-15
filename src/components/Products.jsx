@@ -23,7 +23,9 @@ export default function Products({searchTerm, setSearchTerm,
             .then((res) => {
                 setProducts(res.data.products);
                 setLoading(false);
+                
             })
+            //  .then(console.log)
             .catch((err) => {
                 console.log(err);
                 setError(err.message);
@@ -49,7 +51,7 @@ export default function Products({searchTerm, setSearchTerm,
         return matchesSearch && matchesCategory 
     }
     )
-    console.log('here',filteredProducts);
+    // console.log(filteredProducts.category);
     if(error) return <p>Error: {error}</p>
     return(
 
